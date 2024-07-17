@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CesiumJS Library -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/mainStyles.css">
+    <link rel="stylesheet" href="./css/cesiumStyles.css">
+    <link rel="stylesheet" href="./css/storyStyles.css">
+    <title>Museum Oberamteistrasse Reutlingen</title>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="headerContainer">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Logo Image -->
+                <img src="./data/240209_str-ucture_logo_rgb-02.jpg" alt="str.ucture GmbH" class="strLogo">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="cesiumBodyContainer">
+        <div class="row">
+            <!-- Cesium Viewer Container -->
+            <div class="col-12 col-md-7 bg-white">
+                <h4>Museum Oberamteistrasse Reutlingen</h4>
+                <div id="cesiumMapContainer"></div>
+            </div>
+
+            <!-- Information Section -->
+            <div class="col-12 col-md-5 bg-white">
+                <h3 style="text-align: center;">_______________</h3>
+                <div class="storyHeaderContainer">
+                    <div class="storyHeader"><a href="#header1" onclick="setCameraView('view1')">Overview</a></div>
+                    <div class="storyHeader"><a href="#header2" onclick="setCameraView('view2')">History</a></div>
+                    <div class="storyHeader"><a href="#header3" onclick="setCameraView('view3')">Front View</a></div>
+                    <div class="storyHeader"><a href="#header4" onclick="setCameraView('view4')">Right View</a></div>
+                    <div class="storyHeader"><a href="#header5" onclick="setCameraView('view5')">Back View</a></div>
+                    <div class="storyHeader"><a href="#header6" onclick="setCameraView('view6')">Left View</a></div>
+                </div>
+                <div class="storyContentContainer">
+                    <div class="text-content">
+                        <!-- Overview -->
+                        <h1 id="header1">Overview</h1>
+                        <p id="description11" data-first-key="title1" data-second-key="para1"></p>
+                        <img src="./data/img/image1.jpg" class="content-image" alt="History Overview">
+
+                        <h1 id="header2">History</h1>
+                        <p id="description21" data-first-key="title2" data-second-key="para1"></p>
+                        <img src="./data/img/history1.jpg" class="content-image" alt="Location Overview">
+                        
+                        <h1 id="header3">Front View</h1>
+                        <p id="description31" data-first-key="title3" data-second-key="para1"></p>
+                        <div class="carousel">
+                            <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+                            <div class="carousel-images">
+                                <img src="./data/img/image2.jpg" class="carousel-image" alt="Image 1">
+                                <img src="./data/img/image3.jpg" class="carousel-image" alt="Image 2">
+                                <img src="./data/img/image4.jpg" class="carousel-image" alt="Image 3">
+                            </div>
+                            <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+                        </div>
+
+                        <h1 id="header4">Right View</h1>
+                        <p id="description41" data-first-key="title4" data-second-key="para1"></p>
+
+                        <h1 id="header5">Back View</h1>
+                        <p id="description51" data-first-key="title5" data-second-key="para1"></p>
+                        
+                        <h1 id="header6">Left View</h1>
+                        <p id="description61" data-first-key="title6" data-second-key="para1"></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Custom JS Script -->
+    <script src="./js/cesiumMain.js" type="module"></script>
+    <script src="./js/storyScripts.js"></script>
+    <script src="./js/storyCarousel.js"></script>
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
