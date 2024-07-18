@@ -3,6 +3,7 @@ const myAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0NzhhZmYx
 const cesiumViewerOptionsGoogle3dTiles = {
   // terrain: Cesium.Terrain.fromWorldTerrain(),
   // globe: false,
+  imageryProvider: false,
   animation: false,
   // shadows: false,
   timeline: false,
