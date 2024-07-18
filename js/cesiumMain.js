@@ -26,14 +26,16 @@ viewer.camera.setView(cesiumCameraViews_noTerrain.view1);
 // Call functions
 // loadLod2Buildings(viewer);
 
-const buildingEntity1 = addGlb(viewer, 'buildWithoutGround1')
-const buildingEntity2 = addGlb(viewer, 'buildWithoutGround2')
-const buildingEntity3 = addGlb(viewer, 'buildWithoutGround3')
-const buildingEntity4 = addGlb(viewer, 'buildWithoutGround4')
+const buildingEntity1 = addGlb(viewer, 'buildWithoutGround1', 9.211329, 48.489961, 5.5, 130, 0, 0);
+const buildingEntity2 = addGlb(viewer, 'buildWithoutGround2', 9.211329, 48.489961, 5.5, 130, 0, 0);
+const buildingEntity3 = addGlb(viewer, 'buildWithoutGround3', 9.211329, 48.489961, 5.5, 130, 0, 0);
+const buildingEntity4 = addGlb(viewer, 'buildWithoutGround4', 9.211329, 48.489961, 5.5, 130, 0, 0);
+const strauchEntity = addGlb(viewer, 'strauch', 9.158983, 48.777488, 16.70, 65, 0, 0);
 buildingEntity1.show = true;
 buildingEntity2.show = false;
 buildingEntity3.show = false;
 buildingEntity4.show = false;
+strauchEntity.show = false
 
 function toggleEntities(action) {
   switch (action) {
@@ -60,6 +62,12 @@ function toggleEntities(action) {
       buildingEntity2.show = false;
       buildingEntity3.show = false;
       buildingEntity4.show = true;
+    case 'showstrauch':
+        buildingEntity1.show = false;
+        buildingEntity2.show = false;
+        buildingEntity3.show = false;
+        buildingEntity4.show = false;
+        strauchEntity.show = true;
     default:
       console.error('Invalid action: ' + action);
   }

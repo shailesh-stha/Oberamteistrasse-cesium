@@ -7,12 +7,12 @@ export const glbUrl = {
   buildWithoutGround2: "./data/3d_model/buildWithoutGround2.glb",
   buildWithoutGround3: "./data/3d_model/buildWithoutGround3.glb",
   buildWithoutGround4: "./data/3d_model/buildWithoutGround4.glb",
+  strauch: "./data/3d_model/strauch.glb",
 
 };
 
-export const addGlb = (viewer, glbName, heading = 130, pitch = 0, roll = 0) => {
-  const position = Cesium.Cartesian3.fromDegrees(9.211329, 48.489961, 5.5);
-
+export const addGlb = (viewer, glbName, longitude = 9.211329, latitude = 48.489961, height = 5.5, heading = 130, pitch = 0, roll = 0) => {
+  const position = Cesium.Cartesian3.fromDegrees(longitude, latitude, height);
   const hpr = new Cesium.HeadingPitchRoll(
     Cesium.Math.toRadians(heading),
     Cesium.Math.toRadians(pitch),
@@ -22,7 +22,6 @@ export const addGlb = (viewer, glbName, heading = 130, pitch = 0, roll = 0) => {
     position,
     hpr
   );
-
   const entity = viewer.entities.add({
     name: glbUrl[glbName],
     position: position,
@@ -35,6 +34,7 @@ export const addGlb = (viewer, glbName, heading = 130, pitch = 0, roll = 0) => {
   });
   return entity;
 };
+
 
 export const toggleVisibility = (entity, show) => {
   if (entity) {

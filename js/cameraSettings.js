@@ -47,6 +47,14 @@ export const cesiumCameraViews_noTerrain = {
       roll: 0,
     },
   },
+  view7: {
+    destination: Cesium.Cartesian3.fromDegrees(9.159396842960215, 48.7773720399419, 370.3686734847587),
+    orientation: {
+      heading: Cesium.Math.toRadians(290.4521041733002),
+      pitch: Cesium.Math.toRadians(-45.50959976015566),
+      roll: 0,
+    },
+  },
 };
 
 export const cesiumCameraViews_withTerrain = {
