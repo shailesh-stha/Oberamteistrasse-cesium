@@ -1,31 +1,38 @@
-export const treeUrl = {
+export const glbUrl = {
   treeLowPoly: "./data/3d_model/tree_poly.glb",
   treewithBed: "./data/3d_model/tree_poly_with_bed.glb",
   treeWithoutBed: "./data/3d_model/tree_poly_without_bed.glb",
   test: "./data/3d_model/test.glb",
-  build: "./data/3d_model/buildWithoutGround.glb"
+  buildWithoutGround1: "./data/3d_model/buildWithoutGround1.glb",
+  buildWithoutGround2: "./data/3d_model/buildWithoutGround2.glb",
+  buildWithoutGround3: "./data/3d_model/buildWithoutGround3.glb",
+  buildWithoutGround4: "./data/3d_model/buildWithoutGround4.glb",
+
 };
 
-export const addTree = (viewer, treeType, heading = 130, pitch = 0, roll = 0) => {
-  const position = Cesium.Cartesian3.fromDegrees(
-    9.211300,
-    48.489972,
+export const addGlb = (viewer, glbName, heading = 130, pitch = 0, roll = 0) => {
+  const position = Cesium.Cartesian3.fromDegrees(9.211329, 48.489961, 5.5);
+
+  const hpr = new Cesium.HeadingPitchRoll(
+    Cesium.Math.toRadians(heading),
+    Cesium.Math.toRadians(pitch),
+    Cesium.Math.toRadians(roll)
+  );
+  const orientation = Cesium.Transforms.headingPitchRollQuaternion(
+    position,
+    hpr
   );
 
-  const hpr = new Cesium.HeadingPitchRoll(Cesium.Math.toRadians(heading), Cesium.Math.toRadians(pitch), Cesium.Math.toRadians(roll));
-  const orientation = Cesium.Transforms.headingPitchRollQuaternion(position, hpr);
-
   const entity = viewer.entities.add({
-    name: treeUrl[treeType],
+    name: glbUrl[glbName],
     position: position,
     orientation: orientation,
     model: {
-      uri: treeUrl[treeType],
-      heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+      uri: glbUrl[glbName],
+      heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND,
       scale: 1,
     },
   });
-
   return entity;
 };
 

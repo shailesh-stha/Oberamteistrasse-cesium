@@ -1,49 +1,49 @@
 export const cesiumCameraViews_noTerrain = {
   view1: {
-    destination: Cesium.Cartesian3.fromDegrees(9.212122550408363, 48.487538617659006, 279.4931482063733),
+    destination: Cesium.Cartesian3.fromDegrees(9.211582169877214, 48.489639168944706, 492.56812124388307),
     orientation: {
-      heading: Cesium.Math.toRadians(345.8974783432861),
-      pitch: Cesium.Math.toRadians(-48.34044322345032),
+      heading: Cesium.Math.toRadians(331.4010151814787),
+      pitch: Cesium.Math.toRadians(-54.977418257029385),
       roll: 0,
     },
   },
   view2: {
-    destination: Cesium.Cartesian3.fromDegrees(9.211433292923482, 48.489678328272184, 42.615675053739025),
+    destination: Cesium.Cartesian3.fromDegrees(9.211893679260898, 48.489963655603376, 471.653192665139),
     orientation: {
-      heading: Cesium.Math.toRadians(345.89747835557245),
-      pitch: Cesium.Math.toRadians(-48.34044317994076),
+      heading: Cesium.Math.toRadians(262.0792560688362),
+      pitch: Cesium.Math.toRadians(-40.77559783133117),
       roll: 0,
     },
   },
   view3: {
-    destination: Cesium.Cartesian3.fromDegrees(9.211651659988473, 48.4897883703095, 36.9900140603756),
+    destination: Cesium.Cartesian3.fromDegrees(9.211570758617, 48.48983235210176, 461.32512006528765),
     orientation: {
-      heading: Cesium.Math.toRadians(306.45560994239355),
-      pitch: Cesium.Math.toRadians(-41.713053114218084),
+      heading: Cesium.Math.toRadians(304.6028508809624),
+      pitch: Cesium.Math.toRadians(-46.456319953006705),
       roll: 0,
     },
   },
   view4: {
-    destination: Cesium.Cartesian3.fromDegrees(9.211551894048556, 48.490211763161206, 37.438005746549905),
+    destination: Cesium.Cartesian3.fromDegrees(9.211556506641616, 48.490056270738194, 468.26649244526976),
     orientation: {
-      heading: Cesium.Math.toRadians(212.10560551191045),
-      pitch: Cesium.Math.toRadians(-42.659699668737474),
+      heading: Cesium.Math.toRadians(227.59212451299086),
+      pitch: Cesium.Math.toRadians(-55.92421112251878),
       roll: 0,
     },
   },
   view5: {
-    destination: Cesium.Cartesian3.fromDegrees(9.210896575639469, 48.49015894019592, 35.24936299222857),
+    destination: Cesium.Cartesian3.fromDegrees(9.211273669861889, 48.49015194981103, 466.9820625353251),
     orientation: {
-      heading: Cesium.Math.toRadians(122.42255135541274),
-      pitch: Cesium.Math.toRadians(-38.87250311275567),
+      heading: Cesium.Math.toRadians(153.77955564220662),
+      pitch: Cesium.Math.toRadians(-53.0838592931676),
       roll: 0,
     },
   },
   view6: {
-    destination: Cesium.Cartesian3.fromDegrees(9.210988098684908, 48.489707281459694, 37.499088659916346),
+    destination: Cesium.Cartesian3.fromDegrees(9.211073127119601, 48.489991719697144, 468.1297848378151),
     orientation: {
-      heading: Cesium.Math.toRadians(32.721342750201316),
-      pitch: Cesium.Math.toRadians(-42.65966702074976),
+      heading: Cesium.Math.toRadians(81.35935496182032),
+      pitch: Cesium.Math.toRadians(-56.8709738093884),
       roll: 0,
     },
   },
@@ -51,10 +51,10 @@ export const cesiumCameraViews_noTerrain = {
 
 export const cesiumCameraViews_withTerrain = {
   view1: {
-    destination: Cesium.Cartesian3.fromDegrees(9.211453491534044, 48.48937316271265, 537.1429707585128),
+    destination: Cesium.Cartesian3.fromDegrees(9.211415987380786, 48.48978815752477, 451.6812768530022),
     orientation: {
-      heading: Cesium.Math.toRadians(344.34656106102005),
-      pitch: Cesium.Math.toRadians(-55.91474959390071),
+      heading: Cesium.Math.toRadians(340.8146922618454),
+      pitch: Cesium.Math.toRadians(-43.61585461336155),
       roll: 0,
     },
   },
