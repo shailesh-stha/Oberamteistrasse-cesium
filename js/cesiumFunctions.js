@@ -84,10 +84,23 @@ export function toggleEntities(action, entities) {
     case 'showBuild4':
       buildingEntity1.show = false;
       buildingEntity2.show = false;
-      buildingEntity3.show = false;
-      buildingEntity4.show = true;
+      buildingEntity3.show = true;
+      buildingEntity4.show = false;
       break;
-    case 'showstrauch':
+    case 'showBuild5':
+      buildingEntity1.show = false;
+      buildingEntity2.show = false;
+      buildingEntity3.show = true;
+      buildingEntity4.show = false;
+      break;
+    case 'showBuild6':
+      buildingEntity1.show = false;
+      buildingEntity2.show = false;
+      buildingEntity3.show = true;
+      buildingEntity4.show = false;
+      break;
+    // strauch
+    case 'showBuild7': 
       buildingEntity1.show = false;
       buildingEntity2.show = false;
       buildingEntity3.show = false;

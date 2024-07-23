@@ -54,7 +54,6 @@ function scrollToTop() {
   });
 }
 
-
 // Print current active header
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.storyContentContainer');
@@ -94,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Call setCameraView with the current active view
           setCameraView(`view${currentActiveHeaderIndex + 1}`);
+          toggleEntities(`showBuild${currentActiveHeaderIndex+1}`);
 
           lastActiveHeaderIndex = currentActiveHeaderIndex;
       }
@@ -108,5 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // Define setCameraView function
 function setCameraView(view) {
   console.log(`Setting camera view to: ${view}`);
+  // Add your Cesium camera view setting code here
+}
+// Define setCameraView function
+function toggleEntities(view) {
+  console.log(`Entities toggled to: ${view}`);
   // Add your Cesium camera view setting code here
 }
