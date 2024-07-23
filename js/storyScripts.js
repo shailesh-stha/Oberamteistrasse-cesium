@@ -45,3 +45,68 @@ document.addEventListener("DOMContentLoaded", () => {
     displayDescription(firstKey, secondKey, paragraph.id);
   });
 });
+
+// Scroll to Top Function
+function scrollToTop() {
+  document.querySelector('.storyContentContainer').scrollTo({
+      top: 0,
+      behavior: 'smooth'
+  });
+}
+
+
+// Print current active header
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.storyContentContainer');
+  const headers = container.querySelectorAll('h1');
+  const activeHeaderIndexDisplay = document.getElementById('activeHeaderIndexDisplay');
+  let lastActiveHeaderIndex = null;
+
+  const checkHeaderPositions = () => {
+      let currentActiveHeaderIndex = null;
+
+      headers.forEach((header, index) => {
+          const headerRect = header.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+
+          // Calculate the top position of the header relative to the container
+          const headerTopRelativeToContainer = headerRect.top - containerRect.top;
+
+          // Check if the header is within the top 35% of the container
+          if (headerTopRelativeToContainer >= -0.2 && headerTopRelativeToContainer <= container.clientHeight * 0.35) {
+              currentActiveHeaderIndex = index;
+          }
+      });
+
+      if (currentActiveHeaderIndex !== null && currentActiveHeaderIndex !== lastActiveHeaderIndex) {
+          // Print to console
+          console.log(`view${currentActiveHeaderIndex}`);
+
+          // Update the HTML display element if it exists
+          if (activeHeaderIndexDisplay) {
+              activeHeaderIndexDisplay.textContent = `view${currentActiveHeaderIndex + 1}`;
+          }
+
+          // Remove active class from all headers
+          headers.forEach(h => h.classList.remove('active'));
+          // Add active class to the current active header
+          headers[currentActiveHeaderIndex].classList.add('active');
+
+          // Call setCameraView with the current active view
+          setCameraView(`view${currentActiveHeaderIndex + 1}`);
+
+          lastActiveHeaderIndex = currentActiveHeaderIndex;
+      }
+  };
+
+  // Check header positions on initial load
+  checkHeaderPositions();
+  // Check header positions on scroll
+  container.addEventListener('scroll', checkHeaderPositions);
+});
+
+// Define setCameraView function
+function setCameraView(view) {
+  console.log(`Setting camera view to: ${view}`);
+  // Add your Cesium camera view setting code here
+}

@@ -13,9 +13,19 @@
     <link rel="stylesheet" href="./css/mainStyles.css">
     <link rel="stylesheet" href="./css/cesiumStyles.css">
     <link rel="stylesheet" href="./css/storyStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Museum Oberamteistrasse Reutlingen</title>
-</head>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D8XLRMW96Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-D8XLRMW96Z');
+    </script>
+
+</head>
 <body>
     <!-- Header Section -->
     <header class="headerContainer">
@@ -39,6 +49,7 @@
             <!-- Information Section -->
             <div class="col-12 col-md-5 bg-white">
                 <h3 style="text-align: center;">_______________</h3>
+
                 <div class="storyHeaderContainer">
                     <div class="storyHeader"><a href="#header1" onclick="setCameraView('view1'); toggleEntities('showBuild1')">Overview</a></div>
                     <div class="storyHeader"><a href="#header2" onclick="setCameraView('view2'); toggleEntities('showBuild2')">History</a></div>
@@ -53,37 +64,66 @@
                         <!-- Overview -->
                         <h1 id="header1">Overview</h1>
                         <p id="description11" data-first-key="title1" data-second-key="para1"></p>
-                        <img src="./data/img/image1.jpg" class="content-image" alt="History Overview">
+                        <p id="description12" data-first-key="title1" data-second-key="para2"></p>
+                        <p id="description13" data-first-key="title1" data-second-key="para3"></p>
 
+                        <img src="./data/img/image1.jpg" class="content-image" alt="History Overview">
+                        
+                        <!-- Header 1 -->
                         <h1 id="header2">History</h1>
                         <p id="description21" data-first-key="title2" data-second-key="para1"></p>
-                        <img src="./data/img/history1.jpg" class="content-image" alt="Location Overview">
-                        
+                        <p id="description22" data-first-key="title2" data-second-key="para2"></p>
+
+                        <div class="carousel" id="carousel_0">
+                            <button class="carousel-button prev" onclick="prevSlide('carousel_0')">&#10094;</button>
+                            <div class="carousel-images">
+                                <img src="./data/img/history1.jpg" class="carousel-image" alt="Image 1">
+                                <img src="./data/img/history2.jpg" class="carousel-image" alt="Image 2">
+                            </div>
+                            <button class="carousel-button next" onclick="nextSlide('carousel_0')">&#10095;</button>
+                        </div>
+
+                        <!-- Header 2 -->
                         <h1 id="header3">Front View</h1>
                         <p id="description31" data-first-key="title3" data-second-key="para1"></p>
-                        <div class="carousel">
-                            <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+                        <div class="carousel" id="carousel_1">
+                            <button class="carousel-button prev" onclick="prevSlide('carousel_1')">&#10094;</button>
                             <div class="carousel-images">
                                 <img src="./data/img/image2.jpg" class="carousel-image" alt="Image 1">
                                 <img src="./data/img/image3.jpg" class="carousel-image" alt="Image 2">
                                 <img src="./data/img/image4.jpg" class="carousel-image" alt="Image 3">
                             </div>
-                            <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+                            <button class="carousel-button next" onclick="nextSlide('carousel_1')">&#10095;</button>
                         </div>
 
+                        <!-- Header 4 -->
                         <h1 id="header4">Right View</h1>
                         <p id="description41" data-first-key="title4" data-second-key="para1"></p>
+                        <p id="description42" data-first-key="title4" data-second-key="para2"></p>
+                        <p id="description43" data-first-key="title4" data-second-key="para3"></p>
 
+                        <!-- Header 5 -->
                         <h1 id="header5">Back View</h1>
                         <p id="description51" data-first-key="title5" data-second-key="para1"></p>
-                        
+                        <p id="description52" data-first-key="title5" data-second-key="para2"></p>
+
+                        <!-- Header 6 -->
                         <h1 id="header6">Left View</h1>
                         <p id="description61" data-first-key="title6" data-second-key="para1"></p>
+                        <p id="description62" data-first-key="title6" data-second-key="para2"></p>
 
+                        <!-- Header 7eeeeeee -->
                         <h1 id="header7">Surprise me!</h1>
-
+                        <p>Test text goes here</p>
+                        <p>Another test text goes here</p>
+                        <p id="description71" data-first-key="title6" data-second-key="para1"></p>
+                        <p id="description72" data-first-key="title6" data-second-key="para2"></p>
 
                     </div>
+                    <!-- Scroll to Top Button -->
+                    <button class="scrollToTopButton" onclick="scrollToTop()">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
                 </div>
             </div>
         </div>

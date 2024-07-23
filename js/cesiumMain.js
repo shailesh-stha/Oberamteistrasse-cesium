@@ -1,6 +1,6 @@
 import { myAccessToken, cesiumViewerOptionsGoogle3dTiles } from "./cesiumConfig.js";
-import { cesiumCameraViews_noTerrain } from "./cameraSettings.js";
-import { addGlb, toggleVisibility } from "./cesiumFunctions.js";
+import { cesiumCameraViews } from "./cameraSettings.js";
+import { initializeEntities, toggleEntities } from "./cesiumFunctions.js";
 
 Cesium.Ion.defaultAccessToken = myAccessToken;
 
@@ -12,69 +12,24 @@ try {
   viewer.scene.primitives.add(tileset);
   viewer.scene.globe.depthTestAgainstTerrain = true;
   viewer.scene.globe.enableLighting = true;
-  viewer.scene.msaaSamples =4;
+  viewer.scene.msaaSamples = 4;
 } catch (error) {
   console.log(`Failed to load tileset: ${error}`);
 }
 
+// Initialize entities
+const entities = initializeEntities(viewer);
+
+
 function setCameraView(view) {
-  viewer.camera.flyTo(cesiumCameraViews_noTerrain[view]);
+  viewer.camera.flyTo(cesiumCameraViews[view]);
 }
 
 // Initialize camera view
-viewer.camera.setView(cesiumCameraViews_noTerrain.view1);
-// Call functions
-// loadLod2Buildings(viewer);
-
-const buildingEntity1 = addGlb(viewer, 'buildWithoutGround1', 9.211329, 48.489961, 5.5, 130, 0, 0);
-const buildingEntity2 = addGlb(viewer, 'buildWithoutGround2', 9.211329, 48.489961, 5.5, 130, 0, 0);
-const buildingEntity3 = addGlb(viewer, 'buildWithoutGround3', 9.211329, 48.489961, 5.5, 130, 0, 0);
-const buildingEntity4 = addGlb(viewer, 'buildWithoutGround4', 9.211329, 48.489961, 5.5, 130, 0, 0);
-const strauchEntity = addGlb(viewer, 'strauch', 9.158983, 48.777488, 16.70, 65, 0, 0);
-buildingEntity1.show = true;
-buildingEntity2.show = false;
-buildingEntity3.show = false;
-buildingEntity4.show = false;
-strauchEntity.show = false
-
-function toggleEntities(action) {
-  switch (action) {
-    case 'showBuild1':
-      buildingEntity1.show = true;
-      buildingEntity2.show = false;
-      buildingEntity3.show = false;
-      buildingEntity4.show = false;
-      break;
-    case 'showBuild2':
-      buildingEntity1.show = false;
-      buildingEntity2.show = true;
-      buildingEntity3.show = false;
-      buildingEntity4.show = false;
-      break;
-    case 'showBuild3':
-      buildingEntity1.show = false;
-      buildingEntity2.show = false;
-      buildingEntity3.show = true;
-      buildingEntity4.show = false;
-      break;
-    case 'showBuild4':
-      buildingEntity1.show = false;
-      buildingEntity2.show = false;
-      buildingEntity3.show = false;
-      buildingEntity4.show = true;
-    case 'showstrauch':
-        buildingEntity1.show = false;
-        buildingEntity2.show = false;
-        buildingEntity3.show = false;
-        buildingEntity4.show = false;
-        strauchEntity.show = true;
-    default:
-      console.error('Invalid action: ' + action);
-  }
-}
+viewer.camera.setView(cesiumCameraViews.view1);
 
 window.setCameraView = setCameraView;
-window.toggleEntities = toggleEntities;
+window.toggleEntities = (action) => toggleEntities(action, entities);
 
 // Get camera info
 var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);

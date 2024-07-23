@@ -1,4 +1,4 @@
-export const glbUrl = {
+const glbUrl = {
   treeLowPoly: "./data/3d_model/tree_poly.glb",
   treewithBed: "./data/3d_model/tree_poly_with_bed.glb",
   treeWithoutBed: "./data/3d_model/tree_poly_without_bed.glb",
@@ -8,10 +8,18 @@ export const glbUrl = {
   buildWithoutGround3: "./data/3d_model/buildWithoutGround3.glb",
   buildWithoutGround4: "./data/3d_model/buildWithoutGround4.glb",
   strauch: "./data/3d_model/strauch.glb",
-
 };
 
-export const addGlb = (viewer, glbName, longitude = 9.211329, latitude = 48.489961, height = 5.5, heading = 130, pitch = 0, roll = 0) => {
+const addGlb = (
+  viewer,
+  glbName,
+  longitude = 9.211329,
+  latitude = 48.489961,
+  height = 5.5,
+  heading = 130,
+  pitch = 0,
+  roll = 0
+) => {
   const position = Cesium.Cartesian3.fromDegrees(longitude, latitude, height);
   const hpr = new Cesium.HeadingPitchRoll(
     Cesium.Math.toRadians(heading),
@@ -35,12 +43,62 @@ export const addGlb = (viewer, glbName, longitude = 9.211329, latitude = 48.4899
   return entity;
 };
 
+// load entities into viewer
+export function initializeEntities(viewer) {
+  const buildingEntity1 = addGlb(viewer, 'buildWithoutGround1', 9.211329, 48.489961, 5.5, 130, 0, 0);
+  const buildingEntity2 = addGlb(viewer, 'buildWithoutGround2', 9.211329, 48.489961, 5.5, 130, 0, 0);
+  const buildingEntity3 = addGlb(viewer, 'buildWithoutGround3', 9.211329, 48.489961, 5.5, 130, 0, 0);
+  const buildingEntity4 = addGlb(viewer, 'buildWithoutGround4', 9.211329, 48.489961, 5.5, 130, 0, 0);
+  const strauchEntity = addGlb(viewer, 'strauch', 9.158983, 48.777488, 16.70, 65, 0, 0);
 
-export const toggleVisibility = (entity, show) => {
-  if (entity) {
-    entity.show = show;
+  buildingEntity1.show = true;
+  buildingEntity2.show = false;
+  buildingEntity3.show = false;
+  buildingEntity4.show = false;
+  strauchEntity.show = false;
+
+  return { buildingEntity1, buildingEntity2, buildingEntity3, buildingEntity4, strauchEntity };
+}
+
+export function toggleEntities(action, entities) {
+  const { buildingEntity1, buildingEntity2, buildingEntity3, buildingEntity4, strauchEntity } = entities;
+  switch (action) {
+    case 'showBuild1':
+      buildingEntity1.show = true;
+      buildingEntity2.show = false;
+      buildingEntity3.show = false;
+      buildingEntity4.show = false;
+      break;
+    case 'showBuild2':
+      buildingEntity1.show = false;
+      buildingEntity2.show = true;
+      buildingEntity3.show = false;
+      buildingEntity4.show = false;
+      break;
+    case 'showBuild3':
+      buildingEntity1.show = false;
+      buildingEntity2.show = false;
+      buildingEntity3.show = true;
+      buildingEntity4.show = false;
+      break;
+    case 'showBuild4':
+      buildingEntity1.show = false;
+      buildingEntity2.show = false;
+      buildingEntity3.show = false;
+      buildingEntity4.show = true;
+      break;
+    case 'showstrauch':
+      buildingEntity1.show = false;
+      buildingEntity2.show = false;
+      buildingEntity3.show = false;
+      buildingEntity4.show = false;
+      strauchEntity.show = true;
+      break;
+    default:
+      console.error('Invalid action: ' + action);
   }
-};
+}
+
 
 // Load LOD2 buildings into viewer
 export async function loadLod2Buildings(viewer) {
